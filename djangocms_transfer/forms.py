@@ -15,6 +15,9 @@ from .importer import import_plugins, import_plugins_to_page
 def _object_version_data_hook(data, for_page=False):
     if not data:
         return data
+        
+    if 'pk' not in data:
+    	return data
 
     if 'plugins' in data:
         return ArchivedPlaceholder(
